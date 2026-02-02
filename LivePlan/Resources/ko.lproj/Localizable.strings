@@ -1,0 +1,79 @@
+/* 앱 UI */
+"app.title" = "LivePlan";
+
+/* 프로젝트 */
+"project.list.title" = "프로젝트";
+"project.list.empty.title" = "프로젝트가 없습니다";
+"project.list.empty.message" = "새 프로젝트를 만들어 시작하세요";
+"project.list.empty.action" = "프로젝트 만들기";
+"project.create.title" = "새 프로젝트";
+"project.create.name" = "프로젝트 이름";
+"project.create.startDate" = "시작일";
+"project.create.dueDate" = "마감일";
+"project.create.action" = "만들기";
+"project.pinned.section" = "대표 프로젝트";
+"project.section" = "프로젝트";
+
+/* 태스크 */
+"task.create.title" = "새 할 일";
+"task.create.name" = "할 일";
+"task.create.type" = "유형";
+"task.create.type.oneOff" = "일반";
+"task.create.type.recurring" = "매일 반복";
+"task.create.action" = "추가";
+"task.list.incomplete" = "미완료";
+"task.list.complete" = "완료";
+
+/* 오늘 */
+"today.title" = "오늘";
+"today.allDone.title" = "모두 완료했습니다!";
+"today.allDone.message" = "오늘 할 일을 모두 마쳤습니다";
+
+/* 설정 */
+"settings.title" = "설정";
+"settings.privacy" = "프라이버시";
+"settings.privacy.footer" = "잠금화면은 주변 사람이 볼 수 있습니다. 기본 설정에서는 할 일 제목이 숨겨집니다.";
+"settings.pinned" = "대표 프로젝트";
+"settings.pinned.footer" = "잠금화면 위젯에 우선 표시할 프로젝트를 선택하세요.";
+"settings.pinned.none" = "없음";
+"settings.help" = "도움말";
+"settings.help.widget" = "위젯 설정 방법";
+"settings.help.shortcuts" = "단축어 설정 (선택)";
+"settings.about" = "앱 정보";
+"settings.about.version" = "버전";
+"settings.about.dataVersion" = "데이터 버전";
+
+/* 프라이버시 모드 */
+"privacy.visible" = "제목 표시";
+"privacy.visible.description" = "할 일 제목이 그대로 표시됩니다";
+"privacy.masked" = "제목 숨김 (기본)";
+"privacy.masked.description" = "할 일 1, 할 일 2... 형태로 표시됩니다";
+"privacy.hidden" = "숫자만 표시";
+"privacy.hidden.description" = "숫자만 표시됩니다";
+
+/* 카운터 */
+"counter.outstanding" = "미완료";
+"counter.overdue" = "지연";
+"counter.dueSoon" = "임박";
+"counter.recurring" = "반복";
+
+/* 인텐트 메시지 */
+"intent.complete.success" = "완료했습니다";
+"intent.complete.successWithTitle" = "완료: %@";
+"intent.add.success" = "추가했습니다";
+"intent.add.successWithTitle" = "추가: %@";
+"intent.refresh.success" = "갱신했습니다";
+"intent.error.noTask" = "완료할 항목이 없습니다";
+"intent.error.noProject" = "프로젝트를 찾을 수 없습니다";
+"intent.error.emptyInput" = "내용을 입력해주세요";
+"intent.error.loadFailed" = "데이터를 불러오지 못했습니다";
+
+/* 잠금화면 */
+"ls.allDone" = "모두 완료!";
+"ls.moreItems" = "+%d 더 있음";
+
+/* 공통 */
+"common.cancel" = "취소";
+"common.done" = "완료";
+"common.delete" = "삭제";
+"common.edit" = "편집";

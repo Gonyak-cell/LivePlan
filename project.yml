@@ -1,0 +1,103 @@
+name: LivePlan
+
+options:
+  bundleIdPrefix: com.liveplan
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: "${DEVELOPMENT_TEAM}"
+    MARKETING_VERSION: "2.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.9"
+
+packages:
+  AppCore:
+    path: ./AppCore
+  AppStorage:
+    path: ./AppStorage
+
+targets:
+  LivePlan:
+    type: application
+    platform: iOS
+    sources:
+      - path: LivePlan
+    dependencies:
+      - package: AppCore
+      - package: AppStorage
+      - target: LivePlanWidgetExtension
+      - target: LivePlanIntents
+    settings:
+      base:
+        INFOPLIST_FILE: LivePlan/Info.plist
+        CODE_SIGN_ENTITLEMENTS: LivePlan/LivePlan.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    entitlements:
+      path: LivePlan/LivePlan.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.liveplan.shared
+
+  LivePlanWidgetExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: LivePlanWidgetExtension
+    dependencies:
+      - package: AppCore
+      - package: AppStorage
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    settings:
+      base:
+        INFOPLIST_FILE: LivePlanWidgetExtension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: LivePlanWidgetExtension/LivePlanWidgetExtension.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.liveplan.LivePlan.widget
+
+  LivePlanIntents:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: LivePlanIntents
+    dependencies:
+      - package: AppCore
+      - package: AppStorage
+      - sdk: AppIntents.framework
+    settings:
+      base:
+        INFOPLIST_FILE: LivePlanIntents/Info.plist
+        CODE_SIGN_ENTITLEMENTS: LivePlanIntents/LivePlanIntents.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.liveplan.LivePlan.intents
+
+  LivePlanTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: LivePlanTests
+    dependencies:
+      - target: LivePlan
+
+schemes:
+  LivePlan:
+    build:
+      targets:
+        LivePlan: all
+        LivePlanWidgetExtension: all
+        LivePlanIntents: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - LivePlanTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

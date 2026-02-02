@@ -1,0 +1,79 @@
+/* App UI */
+"app.title" = "LivePlan";
+
+/* Project */
+"project.list.title" = "Projects";
+"project.list.empty.title" = "No Projects";
+"project.list.empty.message" = "Create a new project to get started";
+"project.list.empty.action" = "Create Project";
+"project.create.title" = "New Project";
+"project.create.name" = "Project Name";
+"project.create.startDate" = "Start Date";
+"project.create.dueDate" = "Due Date";
+"project.create.action" = "Create";
+"project.pinned.section" = "Pinned Project";
+"project.section" = "Projects";
+
+/* Task */
+"task.create.title" = "New Task";
+"task.create.name" = "Task";
+"task.create.type" = "Type";
+"task.create.type.oneOff" = "One-time";
+"task.create.type.recurring" = "Daily";
+"task.create.action" = "Add";
+"task.list.incomplete" = "Incomplete";
+"task.list.complete" = "Complete";
+
+/* Today */
+"today.title" = "Today";
+"today.allDone.title" = "All Done!";
+"today.allDone.message" = "You've completed all tasks for today";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.privacy" = "Privacy";
+"settings.privacy.footer" = "Your lock screen can be seen by others. By default, task titles are hidden.";
+"settings.pinned" = "Pinned Project";
+"settings.pinned.footer" = "Choose a project to prioritize on your lock screen widget.";
+"settings.pinned.none" = "None";
+"settings.help" = "Help";
+"settings.help.widget" = "Widget Setup";
+"settings.help.shortcuts" = "Shortcuts Setup (Optional)";
+"settings.about" = "About";
+"settings.about.version" = "Version";
+"settings.about.dataVersion" = "Data Version";
+
+/* Privacy Mode */
+"privacy.visible" = "Show Titles";
+"privacy.visible.description" = "Task titles are shown as-is";
+"privacy.masked" = "Hide Titles (Default)";
+"privacy.masked.description" = "Tasks shown as Task 1, Task 2...";
+"privacy.hidden" = "Numbers Only";
+"privacy.hidden.description" = "Only counts are shown";
+
+/* Counter */
+"counter.outstanding" = "Remaining";
+"counter.overdue" = "Overdue";
+"counter.dueSoon" = "Due Soon";
+"counter.recurring" = "Daily";
+
+/* Intent Messages */
+"intent.complete.success" = "Completed";
+"intent.complete.successWithTitle" = "Completed: %@";
+"intent.add.success" = "Added";
+"intent.add.successWithTitle" = "Added: %@";
+"intent.refresh.success" = "Refreshed";
+"intent.error.noTask" = "No task to complete";
+"intent.error.noProject" = "Project not found";
+"intent.error.emptyInput" = "Please enter a task";
+"intent.error.loadFailed" = "Failed to load data";
+
+/* Lock Screen */
+"ls.allDone" = "All Done!";
+"ls.moreItems" = "+%d more";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.done" = "Done";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
