@@ -428,7 +428,7 @@ class OutstandingComputerTest {
             recurrenceRule = RecurrenceRule(
                 kind = RecurrenceKind.DAILY,
                 interval = 1,
-                anchorDate = testNowMillis - 7 * 24 * 60 * 60 * 1000L
+                anchorDateMillis = testNowMillis - 7 * 24 * 60 * 60 * 1000L
             ),
             recurrenceBehavior = behavior,
             nextOccurrenceDueAt = nextOccurrenceDueAt

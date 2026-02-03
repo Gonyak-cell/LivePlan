@@ -2,10 +2,6 @@ package com.liveplan.widget.ui
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.glance.GlanceTheme
-import androidx.glance.color.ColorProviders
-import androidx.glance.material3.ColorProviders
-import androidx.glance.unit.ColorProvider
 
 /**
  * Widget theme and design tokens
@@ -27,16 +23,17 @@ object WidgetTheme {
     val fontSizeLarge = 32.sp
 
     // Colors (dark theme optimized for widgets)
+    // Using Int constants for JVM test compatibility
     object Colors {
-        val background = android.graphics.Color.parseColor("#1E1E1E")
-        val backgroundVariant = android.graphics.Color.parseColor("#2A2A2A")
-        val primary = android.graphics.Color.parseColor("#6200EE")
-        val textPrimary = android.graphics.Color.WHITE
-        val textSecondary = android.graphics.Color.parseColor("#B0B0B0")
-        val textMuted = android.graphics.Color.parseColor("#808080")
-        val overdue = android.graphics.Color.parseColor("#FF6B6B")
-        val dueSoon = android.graphics.Color.parseColor("#FFB347")
-        val doing = android.graphics.Color.parseColor("#4ECDC4")
-        val p1 = android.graphics.Color.parseColor("#FF6B6B")
+        const val background = 0xFF1E1E1E.toInt()
+        const val backgroundVariant = 0xFF2A2A2A.toInt()
+        const val primary = 0xFF6200EE.toInt()
+        const val textPrimary = 0xFFFFFFFF.toInt()
+        const val textSecondary = 0xFFB0B0B0.toInt()
+        const val textMuted = 0xFF808080.toInt()
+        const val overdue = 0xFFFF6B6B.toInt()
+        const val dueSoon = 0xFFFFB347.toInt()
+        const val doing = 0xFF4ECDC4.toInt()
+        const val p1 = 0xFFFF6B6B.toInt()
     }
 }
