@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Colors -->
+    <color name="widget_background">#1E1E1E</color>
+    <color name="widget_background_variant">#2A2A2A</color>
+    <color name="widget_primary">#6200EE</color>
+    <color name="widget_text_primary">#FFFFFF</color>
+    <color name="widget_text_secondary">#B0B0B0</color>
+    <color name="widget_text_muted">#808080</color>
+    <color name="widget_overdue">#FF6B6B</color>
+    <color name="widget_due_soon">#FFB347</color>
+    <color name="widget_doing">#4ECDC4</color>
+    <color name="widget_p1">#FF6B6B</color>
+</resources>

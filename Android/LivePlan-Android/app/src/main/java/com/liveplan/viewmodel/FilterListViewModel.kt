@@ -3,7 +3,7 @@ package com.liveplan.viewmodel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Folder
-import androidx.compose.material.icons.filled.Label
+import androidx.compose.material.icons.automirrored.filled.Label
 import androidx.compose.material.icons.filled.PriorityHigh
 import androidx.compose.material.icons.filled.Today
 import androidx.compose.material.icons.filled.Warning
@@ -94,7 +94,7 @@ class FilterListViewModel @Inject constructor(
                         BuiltInFilterItem(
                             id = "built-in-by-tag",
                             name = "By Tag",
-                            icon = Icons.Default.Label,
+                            icon = Icons.AutoMirrored.Filled.Label,
                             iconTint = Color(0xFF9C27B0),
                             count = 0
                         ),

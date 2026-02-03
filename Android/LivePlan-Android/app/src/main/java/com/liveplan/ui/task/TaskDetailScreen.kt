@@ -21,7 +21,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Undo
+import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -313,7 +313,7 @@ fun TaskDetailScreen(
                             }
                         ) {
                             Icon(
-                                imageVector = if (state.isCompleted) Icons.Default.Undo else Icons.Default.Check,
+                                imageVector = if (state.isCompleted) Icons.AutoMirrored.Filled.Undo else Icons.Default.Check,
                                 contentDescription = null,
                                 modifier = Modifier.size(18.dp)
                             )

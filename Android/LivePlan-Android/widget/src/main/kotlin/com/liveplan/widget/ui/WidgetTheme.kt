@@ -1,7 +1,9 @@
 package com.liveplan.widget.ui
 
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.glance.color.ColorProvider
 
 /**
  * Widget theme and design tokens
@@ -22,18 +24,34 @@ object WidgetTheme {
     val fontSizeCounter = 12.sp
     val fontSizeLarge = 32.sp
 
-    // Colors (dark theme optimized for widgets)
-    // Using Int constants for JVM test compatibility
+    // Raw color values for reference
+    private object RawColors {
+        val background = Color(0xFF1E1E1E)
+        val backgroundVariant = Color(0xFF2A2A2A)
+        val primary = Color(0xFF6200EE)
+        val textPrimary = Color(0xFFFFFFFF)
+        val textSecondary = Color(0xFFB0B0B0)
+        val textMuted = Color(0xFF808080)
+        val overdue = Color(0xFFFF6B6B)
+        val dueSoon = Color(0xFFFFB347)
+        val doing = Color(0xFF4ECDC4)
+        val p1 = Color(0xFFFF6B6B)
+    }
+
+    /**
+     * Color providers for Glance widgets
+     * Using ColorProvider(day, night) which is the public API
+     */
     object Colors {
-        const val background = 0xFF1E1E1E.toInt()
-        const val backgroundVariant = 0xFF2A2A2A.toInt()
-        const val primary = 0xFF6200EE.toInt()
-        const val textPrimary = 0xFFFFFFFF.toInt()
-        const val textSecondary = 0xFFB0B0B0.toInt()
-        const val textMuted = 0xFF808080.toInt()
-        const val overdue = 0xFFFF6B6B.toInt()
-        const val dueSoon = 0xFFFFB347.toInt()
-        const val doing = 0xFF4ECDC4.toInt()
-        const val p1 = 0xFFFF6B6B.toInt()
+        val background = ColorProvider(day = RawColors.background, night = RawColors.background)
+        val backgroundVariant = ColorProvider(day = RawColors.backgroundVariant, night = RawColors.backgroundVariant)
+        val primary = ColorProvider(day = RawColors.primary, night = RawColors.primary)
+        val textPrimary = ColorProvider(day = RawColors.textPrimary, night = RawColors.textPrimary)
+        val textSecondary = ColorProvider(day = RawColors.textSecondary, night = RawColors.textSecondary)
+        val textMuted = ColorProvider(day = RawColors.textMuted, night = RawColors.textMuted)
+        val overdue = ColorProvider(day = RawColors.overdue, night = RawColors.overdue)
+        val dueSoon = ColorProvider(day = RawColors.dueSoon, night = RawColors.dueSoon)
+        val doing = ColorProvider(day = RawColors.doing, night = RawColors.doing)
+        val p1 = ColorProvider(day = RawColors.p1, night = RawColors.p1)
     }
 }

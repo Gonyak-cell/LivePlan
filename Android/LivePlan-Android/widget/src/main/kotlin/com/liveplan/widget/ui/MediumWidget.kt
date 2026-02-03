@@ -30,7 +30,6 @@ import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import androidx.glance.unit.ColorProvider
 import com.liveplan.core.model.PrivacyMode
 import com.liveplan.core.selection.LockScreenSummary
 import com.liveplan.widget.R
@@ -82,7 +81,7 @@ private fun MediumWidgetContent(
         modifier = GlanceModifier
             .fillMaxSize()
             .cornerRadius(WidgetTheme.cornerRadius)
-            .background(ColorProvider(WidgetTheme.Colors.background))
+            .background(WidgetTheme.Colors.background)
             .clickable(actionStartActivity(mainActivityComponent))
             .padding(WidgetTheme.paddingMedium)
     ) {
@@ -109,7 +108,7 @@ private fun LoadingContent(context: Context) {
         Text(
             text = context.getString(R.string.widget_loading),
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textSecondary),
+                color = WidgetTheme.Colors.textSecondary,
                 fontSize = WidgetTheme.fontSizeBody
             )
         )
@@ -126,7 +125,7 @@ private fun ErrorContent(context: Context) {
         Text(
             text = context.getString(R.string.widget_error_load),
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textSecondary),
+                color = WidgetTheme.Colors.textSecondary,
                 fontSize = WidgetTheme.fontSizeBody
             )
         )
@@ -134,7 +133,7 @@ private fun ErrorContent(context: Context) {
         Text(
             text = context.getString(R.string.widget_error_tap_to_open),
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textMuted),
+                color = WidgetTheme.Colors.textMuted,
                 fontSize = WidgetTheme.fontSizeCounter
             )
         )
@@ -151,7 +150,7 @@ private fun EmptyContent(context: Context) {
         Text(
             text = context.getString(R.string.widget_empty_title),
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textPrimary),
+                color = WidgetTheme.Colors.textPrimary,
                 fontSize = WidgetTheme.fontSizeBody,
                 fontWeight = FontWeight.Medium
             )
@@ -160,7 +159,7 @@ private fun EmptyContent(context: Context) {
         Text(
             text = context.getString(R.string.widget_empty_message),
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textSecondary),
+                color = WidgetTheme.Colors.textSecondary,
                 fontSize = WidgetTheme.fontSizeCounter
             )
         )
@@ -220,7 +219,7 @@ private fun TaskRow(
         Text(
             text = bulletText,
             style = TextStyle(
-                color = ColorProvider(bulletColor),
+                color = bulletColor,
                 fontSize = WidgetTheme.fontSizeBody
             )
         )
@@ -228,7 +227,7 @@ private fun TaskRow(
         Text(
             text = displayTask.maskedTitle,
             style = TextStyle(
-                color = ColorProvider(WidgetTheme.Colors.textPrimary),
+                color = WidgetTheme.Colors.textPrimary,
                 fontSize = WidgetTheme.fontSizeBody
             ),
             maxLines = 1
@@ -259,7 +258,7 @@ private fun CounterRow(
     Text(
         text = counterText,
         style = TextStyle(
-            color = ColorProvider(WidgetTheme.Colors.textSecondary),
+            color = WidgetTheme.Colors.textSecondary,
             fontSize = WidgetTheme.fontSizeCounter
         )
     )
