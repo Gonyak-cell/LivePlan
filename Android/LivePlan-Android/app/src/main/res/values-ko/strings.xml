@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">LivePlan</string>
+
+    <!-- Navigation -->
+    <string name="action_back">뒤로</string>
+    <string name="action_close">닫기</string>
+    <string name="action_clear">지우기</string>
+    <string name="action_retry">다시 시도</string>
+    <string name="action_go_back">돌아가기</string>
+    <string name="action_save">저장</string>
+    <string name="action_cancel">취소</string>
+    <string name="action_delete">삭제</string>
+    <string name="action_confirm">확인</string>
+
+    <!-- Loading -->
+    <string name="loading">로딩 중…</string>
+
+    <!-- Projects -->
+    <string name="projects_title">프로젝트</string>
+    <string name="action_create_project">프로젝트 만들기</string>
+    <string name="project_pinned">대표</string>
+    <string name="project_outstanding_count">미완료 %1$d</string>
+    <string name="project_completed_count">완료 %1$d</string>
+    <string name="project_due_date">마감 %1$s</string>
+    <string name="project_status_active">진행 중</string>
+    <string name="project_status_archived">보관됨</string>
+    <string name="project_status_completed">완료됨</string>
+    <string name="project_title_label">프로젝트 이름</string>
+    <string name="project_title_placeholder">프로젝트 이름을 입력하세요</string>
+    <string name="project_start_date_label">시작일</string>
+    <string name="project_due_date_label">마감일 (선택)</string>
+    <string name="project_note_label">메모 (선택)</string>
+    <string name="project_note_placeholder">프로젝트 메모 추가…</string>
+
+    <!-- Tasks -->
+    <string name="tasks_title">할 일</string>
+    <string name="action_add_task">할 일 추가</string>
+    <string name="task_recurring">반복</string>
+    <string name="task_title_label">할 일 제목</string>
+    <string name="task_title_placeholder">무엇을 해야 하나요?</string>
+    <string name="task_priority_label">우선순위</string>
+    <string name="task_due_date_label">마감일 (선택)</string>
+    <string name="task_recurrence_label">반복</string>
+    <string name="task_recurrence_none">반복 없음</string>
+    <string name="task_recurrence_daily">매일</string>
+    <string name="task_recurrence_weekly">매주</string>
+    <string name="task_recurrence_monthly">매월</string>
+    <string name="task_section_label">섹션 (선택)</string>
+    <string name="task_section_none">섹션 없음</string>
+    <string name="task_tags_label">태그 (선택)</string>
+    <string name="task_note_label">메모 (선택)</string>
+    <string name="task_note_placeholder">할 일 메모 추가…</string>
+    <string name="task_delete_confirm_title">할 일 삭제</string>
+    <string name="task_delete_confirm_message">이 할 일을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
+    <string name="task_complete">완료</string>
+    <string name="task_uncomplete">미완료로 변경</string>
+    <string name="task_start">시작</string>
+    <string name="task_detail_title">할 일 상세</string>
+    <string name="task_create_title">새 할 일</string>
+
+    <!-- Workflow States -->
+    <string name="workflow_todo">할 일</string>
+    <string name="workflow_doing">진행 중</string>
+    <string name="workflow_done">완료</string>
+
+    <!-- View Types -->
+    <string name="view_list">목록</string>
+    <string name="view_board">보드</string>
+    <string name="view_calendar">캘린더</string>
+
+    <!-- Empty States -->
+    <string name="empty_projects_title">프로젝트가 없습니다</string>
+    <string name="empty_projects_description">프로젝트를 만들어 할 일을 정리해보세요.</string>
+    <string name="empty_tasks_title">할 일이 없습니다</string>
+    <string name="empty_tasks_description">할 일을 추가해서 진행상황을 관리하세요.</string>
+    <string name="all_tasks_completed_title">모두 완료!</string>
+    <string name="all_tasks_completed_description">훌륭합니다! 모든 할 일을 완료했습니다.</string>
+
+    <!-- Error States -->
+    <string name="error_generic_title">문제가 발생했습니다</string>
+    <string name="error_generic_message">예상치 못한 오류가 발생했습니다. 다시 시도해주세요.</string>
+    <string name="error_load_title">로드 실패</string>
+    <string name="error_load_message">데이터를 불러오지 못했습니다. 앱에서 확인해주세요.</string>
+    <string name="error_network_title">연결 없음</string>
+    <string name="error_network_message">인터넷 연결을 확인하고 다시 시도해주세요.</string>
+    <string name="error_not_found_title">%1$s을(를) 찾을 수 없습니다</string>
+    <string name="error_not_found_message">이 항목이 삭제되었거나 이동되었을 수 있습니다.</string>
+    <string name="error_title_required">제목은 필수입니다</string>
+    <string name="error_due_date_invalid">마감일은 시작일 이후여야 합니다</string>
+
+    <!-- Settings -->
+    <string name="settings_title">설정</string>
+    <string name="settings_coming_soon">설정이 곧 제공됩니다.</string>
+
+    <!-- Settings - Privacy -->
+    <string name="settings_section_privacy">프라이버시</string>
+    <string name="settings_privacy_mode">프라이버시 모드</string>
+    <string name="privacy_mode_notice">잠금화면은 주변 사람이 볼 수 있습니다. 표시할 정보 수준을 선택하세요.</string>
+    <string name="privacy_level_0">전체 공개</string>
+    <string name="privacy_level_0_desc">제목 원문 표시</string>
+    <string name="privacy_level_1">마스킹 (기본값)</string>
+    <string name="privacy_level_1_desc">프로젝트명 숨김, 할 일 축약</string>
+    <string name="privacy_level_2">최소화</string>
+    <string name="privacy_level_2_desc">카운트만 표시, 제목 숨김</string>
+
+    <!-- Settings - Pinned Project -->
+    <string name="settings_section_pinned_project">대표 프로젝트</string>
+    <string name="settings_pinned_project">대표 프로젝트</string>
+    <string name="settings_pinned_project_none">없음 (오늘 요약 표시)</string>
+    <string name="settings_no_projects">프로젝트가 없습니다</string>
+    <string name="pinned_project_notice">대표 프로젝트를 설정하면 위젯에서 우선 표시됩니다.</string>
+
+    <!-- Settings - Widget -->
+    <string name="settings_section_widget">위젯</string>
+    <string name="settings_widget_guide">위젯 설정 가이드</string>
+    <string name="settings_widget_guide_subtitle">위젯 추가 방법 알아보기</string>
+    <string name="widget_guide_step_1">1. 홈 화면을 길게 누르세요</string>
+    <string name="widget_guide_step_2">2. "위젯"을 선택하고 "LivePlan"을 찾으세요</string>
+    <string name="widget_guide_step_3">3. 위젯을 원하는 위치로 드래그하세요</string>
+    <string name="widget_guide_note">참고: 시스템 제약으로 위젯 업데이트가 지연될 수 있습니다.</string>
+
+    <!-- Settings - Quick Add -->
+    <string name="settings_section_quick_add">빠른 입력</string>
+    <string name="settings_quick_add_parsing">스마트 파싱</string>
+    <string name="settings_quick_add_parsing_subtitle">텍스트에서 날짜, 우선순위, 태그 자동 인식</string>
+
+    <!-- Settings - App Info -->
+    <string name="settings_section_app_info">앱 정보</string>
+    <string name="settings_about">LivePlan 정보</string>
+    <string name="app_version">버전 %1$s</string>
+    <string name="about_description">잠금화면 중심의 할 일 관리 앱으로, 집중력과 생산성을 높여줍니다.</string>
+    <string name="about_copyright">© 2024 LivePlan</string>
+
+    <!-- Search -->
+    <string name="search_title">검색</string>
+    <string name="search_placeholder">프로젝트와 할 일 검색…</string>
+    <string name="search_no_results">검색 결과가 없습니다</string>
+
+    <!-- Date/Time -->
+    <string name="date_today">오늘</string>
+    <string name="date_tomorrow">내일</string>
+    <string name="date_select">날짜 선택</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_delete_title">삭제 확인</string>
+    <string name="dialog_discard_title">변경사항을 버리시겠습니까?</string>
+    <string name="dialog_discard_message">저장되지 않은 변경사항이 있습니다. 정말 버리시겠습니까?</string>
+
+    <!-- Widgets -->
+    <string name="widget_medium_name">LivePlan 할 일 요약</string>
+    <string name="widget_small_name">LivePlan 카운트</string>
+
+    <!-- Lock Screen / Widget (잠금화면) -->
+    <string name="ls_summary_title">오늘 요약</string>
+    <string name="ls_counter_outstanding">미완료</string>
+    <string name="ls_counter_overdue">지연</string>
+    <string name="ls_counter_due_soon">임박</string>
+    <string name="ls_counter_recurring">반복</string>
+    <string name="ls_empty">오늘 할 일이 없습니다</string>
+    <string name="ls_add_task">할 일 추가</string>
+
+    <!-- Intent Messages (인텐트 메시지) -->
+    <string name="intent_complete_success">완료했습니다</string>
+    <string name="intent_complete_nothing">완료할 항목이 없습니다</string>
+    <string name="intent_add_success">추가했습니다</string>
+    <string name="intent_add_empty">내용을 입력해주세요</string>
+    <string name="intent_refresh_success">업데이트했습니다</string>
+    <string name="intent_project_not_found">프로젝트를 찾을 수 없습니다</string>
+
+    <!-- Accessibility -->
+    <string name="cd_complete_task">할 일 완료</string>
+    <string name="cd_uncomplete_task">미완료로 변경</string>
+    <string name="cd_delete_task">할 일 삭제</string>
+    <string name="cd_priority">우선순위 %1$s</string>
+    <string name="cd_recurring_task">반복 할 일</string>
+    <string name="cd_pinned_project">대표 프로젝트</string>
+</resources>

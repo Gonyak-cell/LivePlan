@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    App Shortcuts for LivePlan
+
+    These shortcuts appear when long-pressing the app icon:
+    1. Quick Add - Opens quick add dialog for fast task entry
+    2. Complete Next - Completes the next outstanding task
+    -->
+
+    <!-- Quick Add Task Shortcut -->
+    <shortcut
+        android:shortcutId="quick_add"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_task"
+        android:shortcutShortLabel="@string/shortcut_quick_add_short"
+        android:shortcutLongLabel="@string/shortcut_quick_add_long">
+        <intent
+            android:action="com.liveplan.shortcuts.QUICK_ADD"
+            android:targetPackage="com.liveplan"
+            android:targetClass="com.liveplan.shortcuts.activity.QuickAddActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+    <!-- Complete Next Task Shortcut -->
+    <shortcut
+        android:shortcutId="complete_next"
+        android:enabled="true"
+        android:icon="@drawable/ic_check_circle"
+        android:shortcutShortLabel="@string/shortcut_complete_next_short"
+        android:shortcutLongLabel="@string/shortcut_complete_next_long">
+        <intent
+            android:action="com.liveplan.shortcuts.COMPLETE_NEXT"
+            android:targetPackage="com.liveplan"
+            android:targetClass="com.liveplan.shortcuts.activity.CompleteNextActivity" />
+    </shortcut>
+</shortcuts>

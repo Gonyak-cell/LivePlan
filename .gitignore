@@ -77,3 +77,40 @@ playground.xcworkspace
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# ─────────────────────────────────────
+# Android
+# ─────────────────────────────────────
+
+# Gradle
+Android/**/build/
+Android/**/.gradle/
+Android/**/gradle-wrapper.jar
+Android/**/gradle.properties
+!Android/**/gradle/wrapper/gradle-wrapper.properties
+
+# Android Studio
+Android/**/*.iml
+Android/**/.idea/
+Android/**/local.properties
+Android/**/captures/
+Android/**/.externalNativeBuild/
+Android/**/.cxx/
+
+# Keystore
+Android/**/*.jks
+Android/**/*.keystore
+
+# APK/AAB
+Android/**/*.apk
+Android/**/*.aab
+
+# Proguard
+Android/**/proguard/
+
+# Log files
+Android/**/*.log
+
+# Test outputs
+Android/**/test-results/
+Android/**/androidTest-results/

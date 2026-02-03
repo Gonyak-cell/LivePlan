@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Titles -->
+    <string name="widget_medium_name">LivePlan 할 일 요약</string>
+    <string name="widget_small_name">LivePlan 카운트</string>
+    <string name="widget_medium_description">Top 3 할 일과 미완료/지연 카운트를 표시합니다</string>
+    <string name="widget_small_description">미완료 할 일 개수를 표시합니다</string>
+
+    <!-- Widget Loading -->
+    <string name="widget_loading">로딩 중…</string>
+
+    <!-- Widget Preview -->
+    <string name="widget_preview_title">오늘 할 일</string>
+    <string name="widget_preview_task_1">○ 회의 준비</string>
+    <string name="widget_preview_task_2">○ 보고서 작성</string>
+    <string name="widget_preview_task_3">○ 이메일 확인</string>
+    <string name="widget_preview_counter">미완료 5 · 지연 1</string>
+    <string name="widget_preview_count_number">5</string>
+    <string name="widget_preview_outstanding">미완료</string>
+
+    <!-- Widget Content -->
+    <string name="widget_empty_title">할 일을 추가하세요</string>
+    <string name="widget_empty_message">앱을 열어 할 일을 추가해보세요</string>
+    <string name="widget_outstanding_label">미완료</string>
+    <string name="widget_overdue_label">지연</string>
+    <string name="widget_duesoon_label">임박</string>
+    <string name="widget_counter_format">미완료 %1$d · 지연 %2$d</string>
+    <string name="widget_counter_with_duesoon_format">미완료 %1$d · 지연 %2$d · 임박 %3$d</string>
+    <string name="widget_task_bullet">○</string>
+    <string name="widget_task_bullet_overdue">⚠</string>
+    <string name="widget_task_bullet_doing">▶</string>
+
+    <!-- Privacy Masked -->
+    <string name="widget_masked_task">할 일 %1$d</string>
+    <string name="widget_masked_project">프로젝트</string>
+
+    <!-- Error States -->
+    <string name="widget_error_load">데이터 로드 실패</string>
+    <string name="widget_error_tap_to_open">탭하여 앱 열기</string>
+</resources>

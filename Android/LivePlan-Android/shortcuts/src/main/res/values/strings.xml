@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quick Settings Tile -->
+    <string name="tile_complete_task_label">Complete Task</string>
+    <string name="tile_complete_task_subtitle">Complete next task</string>
+    <string name="tile_no_task">No tasks</string>
+
+    <!-- App Shortcuts -->
+    <string name="shortcut_quick_add_short">Quick Add</string>
+    <string name="shortcut_quick_add_long">Quick Add Task</string>
+    <string name="shortcut_complete_next_short">Complete</string>
+    <string name="shortcut_complete_next_long">Complete Next Task</string>
+
+    <!-- Quick Add Activity -->
+    <string name="quick_add_title">Quick Add</string>
+    <string name="quick_add_hint">What needs to be done?</string>
+    <string name="quick_add_button">Add</string>
+
+    <!-- Notification -->
+    <string name="notification_channel_name">Live Plan Progress</string>
+    <string name="notification_channel_description">Shows current task progress</string>
+    <string name="notification_title">LivePlan</string>
+    <string name="notification_action_complete">Complete</string>
+    <string name="notification_action_dismiss">Dismiss</string>
+    <string name="notification_no_tasks">No outstanding tasks</string>
+    <string name="notification_task_count">%1$d remaining</string>
+
+    <!-- Messages -->
+    <string name="error_no_task_to_complete">No task to complete</string>
+    <string name="error_no_project">No project available</string>
+    <string name="error_empty_title">Title is required</string>
+    <string name="task_completed_simple">Completed!</string>
+    <string name="task_completed_with_title">Completed: %1$s</string>
+    <string name="task_added_success">Task added</string>
+</resources>

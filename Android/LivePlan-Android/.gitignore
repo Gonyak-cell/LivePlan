@@ -1,0 +1,32 @@
+# Android Studio / Gradle
+*.iml
+.gradle/
+local.properties
+.idea/
+*.hprof
+
+# Build outputs
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Keystore (sensitive)
+*.jks
+*.keystore
+keystore.properties
+keystore_base64.txt
+
+# APK/AAB
+*.apk
+*.aab
+
+# Proguard
+proguard/
+
+# Log files
+*.log
+
+# Test outputs
+test-results/
+androidTest-results/
