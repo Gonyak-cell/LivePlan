@@ -195,11 +195,14 @@ class QuickAddParser @Inject constructor() {
         }
 
         // Extract weekday if no date found
+        // Match only standalone weekday patterns (not part of other words)
         if (baseDate == null) {
             for ((pattern, dayOfWeek) in WEEKDAY_PATTERNS) {
-                if (text.contains(pattern)) {
+                // Use lookbehind/lookahead for word boundary (space or start/end)
+                val wordPattern = Regex("""(?<=\s|^)${Regex.escape(pattern)}(?=\s|$)""")
+                if (wordPattern.containsMatchIn(text)) {
                     baseDate = getNextWeekday(baseTimeMillis, dayOfWeek)
-                    remaining = remaining.replace(pattern, "")
+                    remaining = wordPattern.replace(remaining, "")
                     break
                 }
             }
