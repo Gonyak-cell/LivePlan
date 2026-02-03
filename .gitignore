@@ -85,8 +85,6 @@ playground.xcworkspace
 # Gradle
 Android/**/build/
 Android/**/.gradle/
-Android/**/gradle-wrapper.jar
-Android/**/gradle.properties
 !Android/**/gradle/wrapper/gradle-wrapper.properties
 
 # Android Studio
