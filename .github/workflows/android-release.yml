@@ -1,0 +1,219 @@
+name: Android Release
+
+on:
+  push:
+    tags:
+      - 'android-v*'
+  workflow_dispatch:
+    inputs:
+      track:
+        description: 'Play Store track'
+        required: true
+        default: 'internal'
+        type: choice
+        options:
+          - internal
+          - alpha
+          - beta
+          - production
+      version_name:
+        description: 'Version name (e.g., 1.0.0)'
+        required: false
+        type: string
+
+concurrency:
+  group: android-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.caching=true"
+
+jobs:
+  build-release:
+    name: Build Release AAB
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Android/LivePlan-Android
+
+    outputs:
+      version_name: ${{ steps.version.outputs.version_name }}
+      version_code: ${{ steps.version.outputs.version_code }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Extract version info
+        id: version
+        run: |
+          if [ -n "${{ github.event.inputs.version_name }}" ]; then
+            VERSION_NAME="${{ github.event.inputs.version_name }}"
+          else
+            VERSION_NAME=$(grep "versionName" app/build.gradle.kts | head -1 | sed 's/.*"\(.*\)".*/\1/')
+          fi
+          VERSION_CODE=$(grep "versionCode" app/build.gradle.kts | head -1 | sed 's/[^0-9]*//g')
+          echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
+          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION_NAME ($VERSION_CODE)"
+
+      - name: Decode Keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > app/release.keystore
+
+      - name: Run unit tests
+        run: ./gradlew testReleaseUnitTest
+
+      - name: Build Release AAB
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          ./gradlew bundleRelease \
+            -Pandroid.injected.signing.store.file=$PWD/app/release.keystore \
+            -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
+      - name: Build Release APK (for testing)
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$PWD/app/release.keystore \
+            -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
+      - name: Cleanup keystore
+        if: always()
+        run: rm -f app/release.keystore
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: Android/LivePlan-Android/app/build/outputs/bundle/release/*.aab
+          retention-days: 30
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: Android/LivePlan-Android/app/build/outputs/apk/release/*.apk
+          retention-days: 30
+
+      - name: Upload mapping file
+        uses: actions/upload-artifact@v4
+        with:
+          name: mapping
+          path: Android/LivePlan-Android/app/build/outputs/mapping/release/mapping.txt
+          retention-days: 90
+
+  deploy-play-store:
+    name: Deploy to Play Store
+    runs-on: ubuntu-latest
+    needs: build-release
+    environment: play-store
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download AAB
+        uses: actions/download-artifact@v4
+        with:
+          name: release-aab
+          path: artifacts/
+
+      - name: Download mapping
+        uses: actions/download-artifact@v4
+        with:
+          name: mapping
+          path: artifacts/
+
+      - name: Determine track
+        id: track
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TRACK="${{ github.event.inputs.track }}"
+          else
+            TRACK="internal"
+          fi
+          echo "track=$TRACK" >> $GITHUB_OUTPUT
+          echo "Deploying to: $TRACK"
+
+      - name: Upload to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT_JSON }}
+          packageName: com.liveplan
+          releaseFiles: artifacts/*.aab
+          track: ${{ steps.track.outputs.track }}
+          status: completed
+          mappingFile: artifacts/mapping.txt
+
+  create-github-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: [build-release, deploy-play-store]
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: release-apk
+          path: artifacts/
+
+      - name: Download mapping
+        uses: actions/download-artifact@v4
+        with:
+          name: mapping
+          path: artifacts/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Android ${{ needs.build-release.outputs.version_name }}
+          body: |
+            ## LivePlan Android ${{ needs.build-release.outputs.version_name }}
+
+            ### Changes
+            - See commit history for details
+
+            ### Installation
+            - Download the APK below for direct installation
+            - Or get it from Google Play Store (internal track)
+
+            ### Build Info
+            - Version Code: ${{ needs.build-release.outputs.version_code }}
+            - Version Name: ${{ needs.build-release.outputs.version_name }}
+          files: |
+            artifacts/*.apk
+            artifacts/mapping.txt
+          draft: false
+          prerelease: ${{ !contains(github.ref, 'production') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
