@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.liveplan.shortcuts"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 26
