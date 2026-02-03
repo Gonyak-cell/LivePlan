@@ -210,4 +210,29 @@
     <string name="settings_section_shortcuts">Shortcuts</string>
     <string name="settings_notification_toggle">Progress notification</string>
     <string name="settings_notification_toggle_subtitle">Show ongoing notification with current task</string>
+
+    <!-- Lock Screen / Widget -->
+    <string name="ls_summary_title">Today Summary</string>
+    <string name="ls_counter_outstanding">Remaining</string>
+    <string name="ls_counter_overdue">Overdue</string>
+    <string name="ls_counter_due_soon">Due soon</string>
+    <string name="ls_counter_recurring">Recurring</string>
+    <string name="ls_empty">No tasks for today</string>
+    <string name="ls_add_task">Add task</string>
+
+    <!-- Intent Messages -->
+    <string name="intent_complete_success">Completed</string>
+    <string name="intent_complete_nothing">No task to complete</string>
+    <string name="intent_add_success">Added</string>
+    <string name="intent_add_empty">Please enter content</string>
+    <string name="intent_refresh_success">Updated</string>
+    <string name="intent_project_not_found">Project not found</string>
+
+    <!-- Accessibility -->
+    <string name="cd_complete_task">Complete task</string>
+    <string name="cd_uncomplete_task">Mark as incomplete</string>
+    <string name="cd_delete_task">Delete task</string>
+    <string name="cd_priority">Priority %1$s</string>
+    <string name="cd_recurring_task">Recurring task</string>
+    <string name="cd_pinned_project">Pinned project</string>
 </resources>
