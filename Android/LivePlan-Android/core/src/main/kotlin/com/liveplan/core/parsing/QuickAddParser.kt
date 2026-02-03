@@ -200,7 +200,16 @@ class QuickAddParser @Inject constructor() {
             for ((pattern, dayOfWeek) in WEEKDAY_PATTERNS) {
                 // Use lookbehind/lookahead for word boundary (space or start/end)
                 val wordPattern = Regex("""(?<=\s|^)${Regex.escape(pattern)}(?=\s|$)""")
-                if (wordPattern.containsMatchIn(text)) {
+                val match = wordPattern.find(text)
+                if (match != null) {
+                    // For single-char patterns (월, 화, 수, 목, 금, 토, 일),
+                    // skip if preceded by Korean character + space (e.g., "할 일" where 일 means "work")
+                    if (pattern.length == 1 && match.range.first >= 2) {
+                        val charBeforeSpace = text.getOrNull(match.range.first - 2)
+                        if (charBeforeSpace != null && charBeforeSpace in '가'..'힣') {
+                            continue // Skip - likely part of a Korean phrase
+                        }
+                    }
                     baseDate = getNextWeekday(baseTimeMillis, dayOfWeek)
                     remaining = wordPattern.replace(remaining, "")
                     break
