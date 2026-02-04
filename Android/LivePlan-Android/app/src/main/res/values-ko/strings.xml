@@ -57,6 +57,7 @@
     <string name="task_complete">완료</string>
     <string name="task_uncomplete">미완료로 변경</string>
     <string name="task_start">시작</string>
+    <string name="task_started_notification">시작했습니다. 알림에 진행 상황이 표시됩니다.</string>
     <string name="task_detail_title">할 일 상세</string>
     <string name="task_create_title">새 할 일</string>
 

@@ -137,9 +137,14 @@ class ProjectDetailViewModel @Inject constructor(
         viewModelScope.launch {
             val result = startTaskUseCase(taskId)
 
-            result.onFailure { error ->
-                _events.emit(ProjectDetailEvent.ShowError(error.message ?: "Failed to start task"))
-            }
+            result.fold(
+                onSuccess = {
+                    _events.emit(ProjectDetailEvent.TaskStarted)
+                },
+                onFailure = { error ->
+                    _events.emit(ProjectDetailEvent.ShowError(error.message ?: "Failed to start task"))
+                }
+            )
         }
     }
 
@@ -200,5 +205,6 @@ data class TaskItem(
  */
 sealed interface ProjectDetailEvent {
     data object ProjectDeleted : ProjectDetailEvent
+    data object TaskStarted : ProjectDetailEvent
     data class ShowError(val message: String) : ProjectDetailEvent
 }

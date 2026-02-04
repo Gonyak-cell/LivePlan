@@ -39,6 +39,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -54,6 +55,7 @@ import com.liveplan.ui.common.EmptyTasksState
 import com.liveplan.ui.common.FullScreenLoading
 import com.liveplan.ui.common.GenericErrorState
 import com.liveplan.ui.common.NotFoundState
+import com.liveplan.shortcuts.notification.LivePlanNotificationService
 import com.liveplan.ui.common.TaskRow
 import com.liveplan.ui.theme.LivePlanTheme
 import com.liveplan.viewmodel.ProjectDetailEvent
@@ -77,6 +79,7 @@ fun ProjectDetailScreen(
     val uiState by viewModel.uiState.collectAsState()
     val viewType by viewModel.viewType.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+    val context = LocalContext.current
 
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showMenu by remember { mutableStateOf(false) }
@@ -87,6 +90,10 @@ fun ProjectDetailScreen(
             when (event) {
                 is ProjectDetailEvent.ProjectDeleted -> {
                     onNavigateBack()
+                }
+                is ProjectDetailEvent.TaskStarted -> {
+                    LivePlanNotificationService.start(context)
+                    snackbarHostState.showSnackbar(context.getString(R.string.task_started_notification))
                 }
                 is ProjectDetailEvent.ShowError -> {
                     snackbarHostState.showSnackbar(event.message)

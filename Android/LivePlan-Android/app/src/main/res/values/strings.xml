@@ -55,6 +55,7 @@
     <string name="task_complete">Complete</string>
     <string name="task_uncomplete">Mark Incomplete</string>
     <string name="task_start">Start</string>
+    <string name="task_started_notification">Task started. Progress shown in notification.</string>
     <string name="task_detail_title">Task Details</string>
     <string name="task_create_title">New Task</string>
 

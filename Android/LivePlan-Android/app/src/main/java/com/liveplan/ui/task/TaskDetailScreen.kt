@@ -48,6 +48,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -64,6 +65,7 @@ import com.liveplan.ui.common.FullScreenLoading
 import com.liveplan.ui.common.GenericErrorState
 import com.liveplan.ui.common.NotFoundState
 import com.liveplan.ui.common.PriorityBadge
+import com.liveplan.shortcuts.notification.LivePlanNotificationService
 import com.liveplan.ui.theme.LivePlanTheme
 import com.liveplan.viewmodel.TaskDetailEvent
 import com.liveplan.viewmodel.TaskDetailUiState
@@ -87,6 +89,7 @@ fun TaskDetailScreen(
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
     var showDeleteDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     // Handle events
     LaunchedEffect(Unit) {
@@ -94,6 +97,10 @@ fun TaskDetailScreen(
             when (event) {
                 is TaskDetailEvent.TaskDeleted -> {
                     onTaskDeleted()
+                }
+                is TaskDetailEvent.TaskStarted -> {
+                    LivePlanNotificationService.start(context)
+                    snackbarHostState.showSnackbar(context.getString(R.string.task_started_notification))
                 }
                 is TaskDetailEvent.ShowError -> {
                     snackbarHostState.showSnackbar(event.message)

@@ -122,7 +122,7 @@ class TaskDetailViewModel @Inject constructor(
 
             result.fold(
                 onSuccess = {
-                    _events.emit(TaskDetailEvent.ShowMessage("Task started"))
+                    _events.emit(TaskDetailEvent.TaskStarted)
                 },
                 onFailure = { error ->
                     _events.emit(TaskDetailEvent.ShowError(error.message ?: "Failed to start task"))
@@ -174,6 +174,7 @@ sealed interface TaskDetailUiState {
  */
 sealed interface TaskDetailEvent {
     data object TaskDeleted : TaskDetailEvent
+    data object TaskStarted : TaskDetailEvent
     data class ShowError(val message: String) : TaskDetailEvent
     data class ShowMessage(val message: String) : TaskDetailEvent
 }
