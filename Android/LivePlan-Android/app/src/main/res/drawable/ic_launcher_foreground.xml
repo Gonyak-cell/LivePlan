@@ -5,17 +5,13 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- LivePlan Icon: Checkmark in a rounded square -->
-    <!-- Safe zone is 66dp centered (21dp padding each side) -->
+    <!-- Back checkmark (semi-transparent, offset down-left) -->
+    <path
+        android:fillColor="#60FFFFFF"
+        android:pathData="M28,70 C24.7,70 22,67.3 22,64 C22,62.4 22.6,60.9 23.7,59.8 L38.5,45 L67.3,16.2 C68.4,15.1 69.9,14.5 71.5,14.5 C74.8,14.5 77.5,17.2 77.5,20.5 C77.5,22.1 76.9,23.6 75.8,24.7 L42.5,58 L31.8,68.7 C30.7,69.8 29.2,70.4 27.6,70.4 L28,70 Z" />
 
-    <!-- Rounded square background (white, slightly transparent) -->
+    <!-- Front checkmark (white, offset up-right) -->
     <path
         android:fillColor="#FFFFFF"
-        android:fillAlpha="0.95"
-        android:pathData="M30,38 C30,33.6 33.6,30 38,30 L70,30 C74.4,30 78,33.6 78,38 L78,70 C78,74.4 74.4,78 70,78 L38,78 C33.6,78 30,74.4 30,70 Z" />
-
-    <!-- Checkmark -->
-    <path
-        android:fillColor="#1E9CD7"
-        android:pathData="M46,58 L42,54 C40.9,52.9 40.9,51.1 42,50 C43.1,48.9 44.9,48.9 46,50 L49,53 L62,40 C63.1,38.9 64.9,38.9 66,40 C67.1,41.1 67.1,42.9 66,44 L51,59 C50.4,59.6 49.7,60 49,60 C48.3,60 47.6,59.6 47,59 L46,58 Z" />
+        android:pathData="M36,58 C32.7,58 30,55.3 30,52 C30,50.4 30.6,48.9 31.7,47.8 L46.5,33 L75.3,4.2 C76.4,3.1 77.9,2.5 79.5,2.5 C82.8,2.5 85.5,5.2 85.5,8.5 C85.5,10.1 84.9,11.6 83.8,12.7 L50.5,46 L39.8,56.7 C38.7,57.8 37.2,58.4 35.6,58.4 L36,58 Z" />
 </vector>
