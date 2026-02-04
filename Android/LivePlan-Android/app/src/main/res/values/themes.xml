@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- LivePlan Light Theme -->
+    <style name="Theme.LivePlan" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="android:colorPrimary">@color/primary_500</item>
+        <item name="android:colorPrimaryDark">@color/primary_700</item>
+        <item name="android:colorAccent">@color/primary_500</item>
 
-    <style name="Theme.LivePlan" parent="android:Theme.Material.Light.NoActionBar" />
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:colorBackground">@color/background_light</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/primary_700</item>
+        <item name="android:navigationBarColor">@color/surface_light</item>
+
+        <!-- Splash screen -->
+        <item name="android:windowSplashScreenBackground">@color/primary_500</item>
+    </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.LivePlan.Splash" parent="Theme.LivePlan">
+        <item name="android:windowBackground">@color/primary_500</item>
+    </style>
 </resources>

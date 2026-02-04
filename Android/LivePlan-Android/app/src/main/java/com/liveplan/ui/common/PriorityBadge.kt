@@ -16,15 +16,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.liveplan.core.model.Priority
 import com.liveplan.ui.theme.LivePlanTheme
+import com.liveplan.ui.theme.PriorityColors
+import com.liveplan.ui.theme.Radius
 
 /**
  * Priority badge showing P1~P4 with color coding
  *
- * Colors:
- * - P1: Red (highest priority)
- * - P2: Orange
- * - P3: Blue
- * - P4: Gray (default/lowest)
+ * Colors (from theme):
+ * - P1: Red (highest priority - Error)
+ * - P2: Orange (high - Warning)
+ * - P3: Blue (medium - Primary)
+ * - P4: Gray (default/lowest - Neutral)
  */
 @Composable
 fun PriorityBadge(
@@ -36,7 +38,7 @@ fun PriorityBadge(
 
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(4.dp))
+            .clip(RoundedCornerShape(Radius.sm))
             .background(backgroundColor)
             .padding(horizontal = 6.dp, vertical = 2.dp)
     ) {
@@ -50,22 +52,22 @@ fun PriorityBadge(
 }
 
 /**
- * Get colors for priority level
+ * Get colors for priority level using theme colors
  */
 @Composable
 private fun getPriorityColors(priority: Priority): Pair<Color, Color> {
     return when (priority) {
         Priority.P1 -> Pair(
-            Color(0xFFFFEBEE), // Light red background
-            Color(0xFFD32F2F)  // Red text
+            PriorityColors.P1Background,
+            PriorityColors.P1Foreground
         )
         Priority.P2 -> Pair(
-            Color(0xFFFFF3E0), // Light orange background
-            Color(0xFFF57C00)  // Orange text
+            PriorityColors.P2Background,
+            PriorityColors.P2Foreground
         )
         Priority.P3 -> Pair(
-            Color(0xFFE3F2FD), // Light blue background
-            Color(0xFF1976D2)  // Blue text
+            PriorityColors.P3Background,
+            PriorityColors.P3Foreground
         )
         Priority.P4 -> Pair(
             MaterialTheme.colorScheme.surfaceVariant,
@@ -79,10 +81,10 @@ private fun getPriorityColors(priority: Priority): Pair<Color, Color> {
  */
 fun getPriorityColor(priority: Priority): Color {
     return when (priority) {
-        Priority.P1 -> Color(0xFFD32F2F) // Red
-        Priority.P2 -> Color(0xFFF57C00) // Orange
-        Priority.P3 -> Color(0xFF1976D2) // Blue
-        Priority.P4 -> Color(0xFF757575) // Gray
+        Priority.P1 -> PriorityColors.P1Foreground
+        Priority.P2 -> PriorityColors.P2Foreground
+        Priority.P3 -> PriorityColors.P3Foreground
+        Priority.P4 -> PriorityColors.P4Foreground
     }
 }
 
